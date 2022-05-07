@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: kong-gateway
+    env: docker
+    repo: https://github.com/alvinslee/render-kong-api-gateway
+    region: oregon
+    plan: starter
+    branch: main
+    healthCheckPath: /

@@ -1,0 +1,16 @@
+_format_version: "2.1"
+_transform: true
+
+services:
+- name: user-service
+  url: http://users-service-1w3d:5000
+  routes:
+  - name: user-routes
+    paths:
+    - /user-service
+- name: widget-service
+  url: http://widgets-service:5001
+  routes:
+  - name: widget-routes
+    paths:
+    - /widget-service

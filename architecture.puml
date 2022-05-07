@@ -1,0 +1,22 @@
+@startuml
+
+left to right direction
+
+actor Client as client
+
+cloud "Render Web Services" {
+ node Kong as kong
+ cloud "Render Private Services" {
+ together {
+    node "Widgets Service" as widgets
+    node "User Service" as users
+ }
+ }
+}
+
+client --> kong #line:red; : GET /users/42
+kong ---> users #line:red; : GET /users/42
+client --> kong #line:blue; : GET /widgets/500
+kong ---> widgets #line:blue; : GET /widgets/500
+
+@enduml
